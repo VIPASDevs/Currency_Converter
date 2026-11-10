@@ -4,10 +4,10 @@ THIS IS A ROUGH-DRAFT FOR THE README.
 • This program below V3 was utilising Artificial Intelligence. After V3, it no longer involved it.
 
 • Languages supported:
-        ENGLISH, RUSSIAN, and JAPANESE
+        ENGLISH, RUSSIAN, JAPANESE, and DEUTSCH
 
 • Languages to be added:
-                GERMAN and UKRAINIAN
+                UKRAINIAN and SPANISH
 All languages will have inaccurate wording, so please inform me of it, and provide the accurate translations.
 
 • The API this relies on might need to be checked to see if it is still being actively maintained.
