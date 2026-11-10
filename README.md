@@ -8,6 +8,7 @@ THIS IS A ROUGH-DRAFT FOR THE README.
 
 • Languages to be added:
                 JAPANESE, GERMAN, and UKRAINIAN
+All languages will have inaccurate wording, so please inform me of it, and provide the accurate translations.
 
 • The API this relies on might need to be checked to see if it is still being actively maintained.
         [NOTE: If it is not, search for one that is, check how much currencies are supported, and choose from the pool using that.]
