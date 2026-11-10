@@ -5,6 +5,7 @@ THIS IS A ROUGH-DRAFT FOR THE README.
 
 • Languages supported:
         ENGLISH, RUSSIAN
+
 • Languages to be added:
                 JAPANESE, GERMAN, and UKRAINIAN
 
