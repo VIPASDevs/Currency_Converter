@@ -12,13 +12,15 @@ public class javer {
 		Scanner ext = new Scanner(System.in);
 		
 		for (;;) {
-			System.out.println("\n!!「金額」欄にテキストを入力すると、プログラムがクラッシュします !!");
-			System.out.println("米ドルを基準として、希望する通貨へ換算します。");
+			System.out.println("「BASE INPUT」では、入力内容がAPI上に存在するかどうかの確認は行われません。");
+			System.out.print("基準通貨: ");
+			String base = input.next();
+			String base_capital = base.toUpperCase(Locale.ROOT);
 			
 			HttpClient client = HttpClient.newHttpClient(); //this handles connection to API server (JAVA already handles encryption)
 			HttpRequest request = HttpRequest.newBuilder() //create a request to the API
 				.uri(URI.create(
-					"https://api.exchangerate.fun/latest?base=USD"
+					"https://api.exchangerate.fun/latest?base=" + base_capital
 				))
 				.GET() //fetches the data
 				.build();
@@ -32,7 +34,7 @@ public class javer {
 		
 			String json = response.body(); //store the entire JSON response
 			
-			System.out.printf("通貨： ");
+			System.out.printf("通貨: ");
 			String a = choice.next();
 			String currency = a.toUpperCase(Locale.ROOT);
 			
@@ -55,13 +57,13 @@ public class javer {
     
 				//extract and clean up the result
 				String result = json.substring(start, end).trim();
-				System.out.println("見つかった値:" + result);
+				System.out.println("価値を発見: " + result);
 				
 				String Text = json.substring(start, end); //extracts only the number
 				double Rate = Double.parseDouble(Text); //converts text number into a double
 			
 				System.out.println("\n「00」で終了");
-				System.out.print("額： $");
+				System.out.print("額： ");
 				double con = input.nextDouble(); //takes user input for USD
 			
 				if (con == 00) {
@@ -70,7 +72,7 @@ public class javer {
 				else {
 					System.out.print("\n");
 					double fin = con * Rate; //converts USD to YEN using the rate
-					System.out.printf("$%.2f 米ドル = " + currency + "%.2f%n", con, fin);
+					System.out.printf("%.2f " base_capital + " = " + currency + "%.2f%n", con, fin);
 				}
 			}
 			else {
