@@ -12,13 +12,15 @@ public class ruver {
 		Scanner ext = new Scanner(System.in);
 		
 		for (;;) {
-			System.out.println("\n!! СЛОВА В ПОЛЕ «СУММА» ПРИВЕДУТ К СБОЮ ПРОГРАММЫ !!");
-			System.out.println("До особого распоряжения возможен обмен только долларов США на желаемую валюту.");
+			System.out.println("BASE INPUT не проверяет, существуют ли введенные вами данные в API.");
+			System.out.print("БАЗОВАЯ ВАЛЮТА: ");
+			String base = input.next();
+			String base_capital = base.toUpperCase(Locale.ROOT);
 			
 			HttpClient client = HttpClient.newHttpClient(); //this handles connection to API server (JAVA already handles encryption)
 			HttpRequest request = HttpRequest.newBuilder() //create a request to the API
 				.uri(URI.create(
-					"https://api.exchangerate.fun/latest?base=USD"
+					"https://api.exchangerate.fun/latest?base=" + base_capital
 				))
 				.GET() //fetches the data
 				.build();
@@ -61,7 +63,7 @@ public class ruver {
 				double Rate = Double.parseDouble(Text); //converts text number into a double
 			
 				System.out.println("\n«00» — ДЛЯ ВЫХОДА");
-				System.out.print("КОЛИЧЕСТВО: $");
+				System.out.print("КОЛИЧЕСТВО: ");
 				double con = input.nextDouble(); //takes user input for USD
 			
 				if (con == 00) {
@@ -70,7 +72,7 @@ public class ruver {
 				else {
 					System.out.print("\n");
 					double fin = con * Rate; //converts USD to YEN using the rate
-					System.out.printf("$%.2f USD = " + currency + "%.2f%n", con, fin);
+					System.out.printf("%.2f " base_capital + " = " + currency + "%.2f%n", con, fin);
 				}
 			}
 			else {
