@@ -72,7 +72,7 @@ public class dever {
 				else {
 					System.out.print("\n");
 					double fin = con * Rate; //converts USD to YEN using the rate
-					System.out.printf("%.2f " base_capital + " = " + currency + "%.2f%n", con, fin);
+					System.out.printf("%.2f " + base_capital + " = " + currency + "%.2f%n", con, fin);
 				}
 			}
 			else {
