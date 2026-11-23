@@ -7,7 +7,7 @@ THIS IS A ROUGH-DRAFT FOR THE README.
         ENGLISH, RUSSIAN, JAPANESE, and DEUTSCH
 
 • Languages to be added:
-                UKRAINIAN and SPANISH
+                UKRAINIAN and SPANISH.
 All languages will have inaccurate wording, so please inform me of it, and provide the accurate translations.
 
 • The API this relies on might need to be checked to see if it is still being actively maintained.
