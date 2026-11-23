@@ -12,13 +12,15 @@ public class dever {
 		Scanner ext = new Scanner(System.in);
 		
 		for (;;) {
-			System.out.println("\n!! Eine zu große Anzahl an Wörtern führt zum Absturz des Programms !!");
-			System.out.println("Verwendet USD als Basis; es werden daher ausschließlich USD in die gewünschte Währung umgerechnet.");
+			System.out.println("BASE INPUT PRÜFT NICHT, OB DEINE EINGABE IN DER API VORHANDEN IST.");
+			System.out.print("BASISWÄHRUNG: ");
+			String base = input.next();
+			String base_capital = base.toUpperCase(Locale.ROOT);
 			
 			HttpClient client = HttpClient.newHttpClient(); //this handles connection to API server (JAVA already handles encryption)
 			HttpRequest request = HttpRequest.newBuilder() //create a request to the API
 				.uri(URI.create(
-					"https://api.exchangerate.fun/latest?base=USD"
+					"https://api.exchangerate.fun/latest?base=" + base_capital
 				))
 				.GET() //fetches the data
 				.build();
@@ -61,7 +63,7 @@ public class dever {
 				double Rate = Double.parseDouble(Text); //converts text number into a double
 			
 				System.out.println("\n„00“ ZUM BEENDEN");
-				System.out.print("MENGE: $");
+				System.out.print("MENGE: ");
 				double con = input.nextDouble(); //takes user input for USD
 			
 				if (con == 00) {
@@ -70,7 +72,7 @@ public class dever {
 				else {
 					System.out.print("\n");
 					double fin = con * Rate; //converts USD to YEN using the rate
-					System.out.printf("$%.2f USD = " + currency + "%.2f%n", con, fin);
+					System.out.printf("%.2f " base_capital + " = " + currency + "%.2f%n", con, fin);
 				}
 			}
 			else {
